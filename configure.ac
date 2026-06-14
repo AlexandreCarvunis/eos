@@ -89,28 +89,14 @@ AC_MSG_CHECKING([for <source_location>])
 save_CXXFLAGS=$CXXFLAGS
 CXXFLAGS="$CXXFLAGS -std=c++20"
 AC_COMPILE_IFELSE([AC_LANG_SOURCE([
-	#ifdef __clang__
-	#  include <experimental/source_location>
-	#else
-	#  include <source_location>
-	#endif
-
-	#ifdef __clang__
-		using source_location = std::experimental::source_location;
-	#else
-		using source_location = std::source_location;
-	#endif
+	#include <source_location>
 
 	int main(int, char **)
 	{
-		auto loc = source_location::current();
+		auto loc = std::source_location::current();
 		return 0;
 	}
-])],
-	[AC_MSG_RESULT([yes])],
-	[AC_MSG_RESULT([no])
-	 AC_MSG_ERROR([your compiler does not support <source_location>])
-	]
+])]
 )
 CXXFLAGS=$save_CXXFLAGS
 dnl }}}
@@ -257,16 +243,15 @@ AC_ARG_WITH([boost-python-suffix],
 dnl }}}
 dnl {{{ python checks (you can change the required python version below)
 if test "x$enable_python" == xyes ; then
-	AM_PATH_PYTHON([3.10])
-	PY_PREFIX=`$PYTHON -c 'import sys ; print(sys.prefix)'`
-	PYTHON_LIBS="`python$PYTHON_VERSION-config --libs`"
-	if python$PYTHON_VERSION-config --libs --embed 2>&1 > /dev/null ; then
-		PYTHON_LIBS_CONFTEST=`python$PYTHON_VERSION-config --libs --embed`
-	else
-		PYTHON_LIBS_CONFTEST=$PYTHON_LIBS
-	fi
-	PYTHON_LDFLAGS="`python$PYTHON_VERSION-config --ldflags`"
-	PYTHON_CXXFLAGS="`python$PYTHON_VERSION-config --includes`"
+    AM_PATH_PYTHON([3.10])
+
+    PY_PREFIX=`$PYTHON -c 'import sys ; print(sys.prefix)'`
+
+    PYTHON_CXXFLAGS="`$PYTHON-config --includes`"
+    PYTHON_LDFLAGS="`$PYTHON-config --ldflags --embed 2>/dev/null || $PYTHON-config --ldflags`"
+
+    AC_MSG_NOTICE([Using Python includes: $PYTHON_CXXFLAGS])
+    AC_MSG_NOTICE([Using Python ldflags: $PYTHON_LDFLAGS])
 	if test "x$has_boost_python_suffix" == "xno"; then
 		os_id="`. /etc/os-release ; echo $ID`"
 		if test "x$os_id" == xubuntu -o "x$os_id" == xdebian ; then
@@ -320,10 +305,23 @@ if test "x$enable_python" == xyes ; then
 	PYTHON_LDFLAGS="$BOOST_PYTHON_LDFLAGS"
 	PYTHON_LIBS="$BOOST_PYTHON_LIBS"
 	else
-	AC_CHECK_LIB([boost_python$BOOST_PYTHON_SUFFIX], main,
-	        [],
-	        [AC_MSG_ERROR([you do seem to be lacking 'libboost_python'.])]
+	BOOST_PYTHON_LIB="-lboost_python$BOOST_PYTHON_SUFFIX"
+
+	AC_MSG_NOTICE([Testing Boost.Python with Python link flags])
+
+	AC_LANG_PUSH([C++])
+	AC_LINK_IFELSE(
+	  [AC_LANG_PROGRAM([[
+	    #include <Python.h>
+	  ]], [[
+	    Py_Initialize();
+	    Py_Finalize();
+	    return 0;
+	  ]])],
+	  [AC_MSG_RESULT([Boost.Python link OK])],
+	  [AC_MSG_ERROR([Boost.Python link failed])]
 	)
+	AC_LANG_POP
 
 	AC_MSG_CHECKING([for working boost_python])
 	AC_COMPILE_IFELSE([AC_LANG_SOURCE([

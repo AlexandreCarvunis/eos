@@ -24,7 +24,19 @@
 #include <memory>
 #include <string>
 #ifdef __clang__
+#if __has_include(<source_location>)
+#  include <source_location>
+   namespace eos {
+      using source_location = std::source_location;
+   }
+#elif __has_include(<experimental/source_location>)
 #  include <experimental/source_location>
+   namespace eos {
+      using source_location = std::experimental::source_location;
+   }
+#else
+#  error "No source_location support"
+#endif
 #else
 #  include <source_location>
 #endif
@@ -32,7 +44,13 @@
 namespace eos
 {
 #ifdef __clang__
+#if __has_include(<source_location>)
+    using source_location = std::source_location;
+#elif __has_include(<experimental/source_location>)
     using source_location = std::experimental::source_location;
+    #else
+#  error "No source_location support"
+#endif
 #else
     using source_location = std::source_location;
 #endif
