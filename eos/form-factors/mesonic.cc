@@ -353,7 +353,7 @@ namespace eos
     const std::map<FormFactorFactory<PToP>::KeyType, FormFactorFactory<PToP>::ValueType> FormFactorFactory<PToP>::form_factors{
         // parametrizations
         // b -> s
-        { "B->K::BCL2008", &BCL2008FormFactors<BToK, 3u>::make },
+        { "B->K::BCL2008", &BCL2008FormFactors<BToK, 5u>::make },
         { "B->K::KMPW2010", &KMPW2010FormFactors<PToP>::make },
         { "B->K::BSZ2015", &BSZ2015FormFactors<BToK, PToP>::make },
         { "B->K::SSE", &SSEFormFactors<BToK, PToP>::make },

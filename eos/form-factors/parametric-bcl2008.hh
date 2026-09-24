@@ -187,6 +187,8 @@ namespace eos
     extern template class BCL2008FormFactors<BToPi, 5u>;
 
     extern template class BCL2008FormFactors<BToK, 3u>;
+    extern template class BCL2008FormFactors<BToK, 4u>;
+    extern template class BCL2008FormFactors<BToK, 5u>;
 
     extern template class BCL2008FormFactors<BToD, 3u>;
 } // namespace eos

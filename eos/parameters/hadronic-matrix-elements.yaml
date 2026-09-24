@@ -1495,6 +1495,18 @@ groups:
           max:     +0.0
           unit:     '1'
           latex:    'b_{+,2}^{B \to K,\mathrm{BCL2008}}'
+      'B->K::b_+^3@BCL2008' :
+          central: +0.0
+          min:     +0.0
+          max:     +0.0
+          unit:     '1'
+          latex:    'b_{+,3}^{B \to K,\mathrm{BCL2008}}'
+      'B->K::b_+^4@BCL2008' :
+          central: +0.0
+          min:     +0.0
+          max:     +0.0
+          unit:     '1'
+          latex:    'b_{+,4}^{B \to K,\mathrm{BCL2008}}'
       'B->K::b_0^1@BCL2008' :
           central: +0.0
           min:     +0.0
@@ -1513,6 +1525,18 @@ groups:
           max:      0.0
           latex:    'b_{0,3}^{B \to K,\mathrm{BCL2008}}'
           unit:     '1'
+      'B->K::b_0^4@BCL2008' :
+          central:  0.0
+          min:      0.0
+          max:      0.0
+          latex:    'b_{0,4}^{B \to K,\mathrm{BCL2008}}'
+          unit:     '1'
+      'B->K::b_0^5@BCL2008' :
+          central:  0.0
+          min:      0.0
+          max:      0.0
+          latex:    'b_{0,5}^{B \to K,\mathrm{BCL2008}}'
+          unit:     '1'
       'B->K::b_T^1@BCL2008' :
           central:  0.0
           min:      0.0
@@ -1524,6 +1548,18 @@ groups:
           min:      0.0
           max:      0.0
           latex:    'b_{T,2}^{B \to K,\mathrm{BCL2008}}'
+          unit:     '1'
+      'B->K::b_T^3@BCL2008' :
+          central:  0.0
+          min:      0.0
+          max:      0.0
+          latex:    'b_{T,3}^{B \to K,\mathrm{BCL2008}}'
+          unit:     '1'
+      'B->K::b_T^4@BCL2008' :
+          central:  0.0
+          min:      0.0
+          max:      0.0
+          latex:    'b_{T,4}^{B \to K,\mathrm{BCL2008}}'
           unit:     '1'
       # form factor parameters for B->K inspired by [BSZ:2015A]
       # new updated results based on a combined LQCD&LCSR fit from the GKvD2018 calculation
