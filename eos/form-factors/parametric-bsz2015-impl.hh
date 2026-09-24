@@ -312,12 +312,12 @@ namespace eos
     template <typename Process_>
     template <typename Parameter_>
     complex<double>
-    BSZ2015FormFactors<Process_, PToP>::_calc_ff(const complex<double> & s, const double & m_R, const std::array<Parameter_, 3> & a) const
+    BSZ2015FormFactors<Process_, PToP>::_calc_ff(const complex<double> & s, const double & m_R, const std::array<Parameter_, 5> & a) const
     {
-        const complex<double> a_0(a[0]), a_1(a[1]), a_2(a[2]);
+        const complex<double> a_0(a[0]), a_1(a[1]), a_2(a[2]), a_3(a[3]), a_4(a[4]);
 
         const complex<double> diff_z = _traits.calc_z(s) - _traits.calc_z(0.0);
-        return 1.0 / (1.0 - s / power_of<2>(m_R)) * (a_0 + a_1 * diff_z + a_2 * power_of<2>(diff_z));
+        return 1.0 / (1.0 - s / power_of<2>(m_R)) * (a_0 + a_1 * diff_z + a_2 * power_of<2>(diff_z) + a_3 * power_of<3>(diff_z)+ a_4 * power_of<4>(diff_z));
     }
 
     template <typename Process_>
@@ -330,10 +330,10 @@ namespace eos
     template <typename Process_>
     BSZ2015FormFactors<Process_, PToP>::BSZ2015FormFactors(const Parameters & p, const Options &) :
         _a_fp{
-            { UsedParameter(p[_par_name("f+_0")], *this), UsedParameter(p[_par_name("f+_1")], *this), UsedParameter(p[_par_name("f+_2")], *this) }
+            { UsedParameter(p[_par_name("f+_0")], *this), UsedParameter(p[_par_name("f+_1")], *this), UsedParameter(p[_par_name("f+_2")], *this) ,UsedParameter(p[_par_name("f+_3")], *this), UsedParameter(p[_par_name("f+_4")], *this) }
     },
-        _a_ft{ { UsedParameter(p[_par_name("fT_0")], *this), UsedParameter(p[_par_name("fT_1")], *this), UsedParameter(p[_par_name("fT_2")], *this) } },
-        _a_fz{ { UsedParameter(p[_par_name("f0_1")], *this), UsedParameter(p[_par_name("f0_2")], *this) } }, _traits(p), _mB(_traits.m_B), _mP(_traits.m_P)
+        _a_ft{ { UsedParameter(p[_par_name("fT_0")], *this), UsedParameter(p[_par_name("fT_1")], *this), UsedParameter(p[_par_name("fT_2")], *this), UsedParameter(p[_par_name("fT_3")], *this), UsedParameter(p[_par_name("fT_4")], *this) } },
+        _a_fz{ { UsedParameter(p[_par_name("f0_1")], *this), UsedParameter(p[_par_name("f0_2")], *this), UsedParameter(p[_par_name("f0_3")], *this), UsedParameter(p[_par_name("f0_4")], *this) } }, _traits(p), _mB(_traits.m_B), _mP(_traits.m_P)
     {
         this->uses(_traits);
     }
@@ -366,11 +366,13 @@ namespace eos
     BSZ2015FormFactors<Process_, PToP>::f_0(const complex<double> & s) const
     {
         // use equation of motion to replace f_0(0) by f_+(0)
-        std::array<double, 3> values{
+        std::array<double, 5> values{
             {
              _a_fp[0],
              _a_fz[1 - 1],
              _a_fz[2 - 1],
+             _a_fz[3 - 1],
+             _a_fz[4 - 1],
              }
         };
 

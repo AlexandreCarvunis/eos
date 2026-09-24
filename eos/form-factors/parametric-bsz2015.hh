@@ -222,15 +222,15 @@ namespace eos
     {
         private:
             // fit parametrization for P -> P inspired by [BSZ:2015A]
-            std::array<UsedParameter, 3> _a_fp, _a_ft;
+            std::array<UsedParameter, 5> _a_fp, _a_ft;
             // use equation of motion to remove f_0(0) as a free parameter
-            std::array<UsedParameter, 2> _a_fz;
+            std::array<UsedParameter, 4> _a_fz;
 
             const BSZ2015FormFactorTraits<Process_, PToP> _traits;
 
             const UsedParameter &_mB, _mP;
 
-            template <typename Parameter_> complex<double> _calc_ff(const complex<double> & s, const double & m2_R, const std::array<Parameter_, 3> & a) const;
+            template <typename Parameter_> complex<double> _calc_ff(const complex<double> & s, const double & m2_R, const std::array<Parameter_, 5> & a) const;
 
             static std::string _par_name(const std::string & ff_name);
 
