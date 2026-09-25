@@ -973,3 +973,143 @@ B^+->K^+l^+l^-::R_K[1.10,6.00]@LHCb:2021A:
   sigma-stat: {hi: +0.042, lo: -0.039}
   sigma-sys: {hi: +0.013, lo: -0.012}
 # }}}
+
+#
+# 2024
+#
+# {{{
+B^+->K^+mu^+mu^-::BR[0.1,0.98]@CMS:2024A:
+  type: 'Gaussian'
+  observable: 'B->Kll::BR'
+  kinematics: {q2_min: +0.1, q2_max: 0.98}
+  options: {l: 'mu', q: 'u', tag: 'BFS2004'}
+  mean: +2.91e-08
+  sigma-stat: {hi: +2.4e-09, lo: -2.4e-09}
+  sigma-sys: {hi: +0.0, lo: -0.0}
+
+B^+->K^+mu^+mu^-::BR[1.1,2.0]@CMS:2024A:
+  type: 'Gaussian'
+  observable: 'B->Kll::BR'
+  kinematics: {q2_min: +1.1, q2_max: 2.0}
+  options: {l: 'mu', q: 'u', tag: 'BFS2004'}
+  mean: +1.93e-08
+  sigma-stat: {hi: +2.0e-09, lo: -2.0e-09}
+  sigma-sys: {hi: +0.0, lo: -0.0}
+
+B^+->K^+mu^+mu^-::BR[2.0,3.0]@CMS:2024A:
+  type: 'Gaussian'
+  observable: 'B->Kll::BR'
+  kinematics: {q2_min: +2.0, q2_max: 3.0}
+  options: {l: 'mu', q: 'u', tag: 'BFS2004'}
+  mean: +3.06e-08
+  sigma-stat: {hi: +2.5e-09, lo: -2.5e-09}
+  sigma-sys: {hi: +0.0, lo: -0.0}
+
+B^+->K^+mu^+mu^-::BR[3.0,4.0]@CMS:2024A:
+  type: 'Gaussian'
+  observable: 'B->Kll::BR'
+  kinematics: {q2_min: +3.0, q2_max: 4.0}
+  options: {l: 'mu', q: 'u', tag: 'BFS2004'}
+  mean: +2.54e-08
+  sigma-stat: {hi: +2.3e-09, lo: -2.3e-09}
+  sigma-sys: {hi: +0.0, lo: -0.0}
+
+B^+->K^+mu^+mu^-::BR[4.0,5.0]@CMS:2024A:
+  type: 'Gaussian'
+  observable: 'B->Kll::BR'
+  kinematics: {q2_min: +4.0, q2_max: 5.0}
+  options: {l: 'mu', q: 'u', tag: 'BFS2004'}
+  mean: +2.47e-08
+  sigma-stat: {hi: +2.4e-09, lo: -2.4e-09}
+  sigma-sys: {hi: +0.0, lo: -0.0}
+
+B^+->K^+mu^+mu^-::BR[5.0,6.0]@CMS:2024A:
+  type: 'Gaussian'
+  observable: 'B->Kll::BR'
+  kinematics: {q2_min: +5.0, q2_max: 6.0}
+  options: {l: 'mu', q: 'u', tag: 'BFS2004'}
+  mean: +2.53e-08
+  sigma-stat: {hi: +2.7e-09, lo: -2.7e-09}
+  sigma-sys: {hi: +0.0, lo: -0.0}
+
+B^+->K^+mu^+mu^-::BR[6.0,7.0]@CMS:2024A:
+  type: 'Gaussian'
+  observable: 'B->Kll::BR'
+  kinematics: {q2_min: +6.0, q2_max: 7.0}
+  options: {l: 'mu', q: 'u', tag: 'BFS2004'}
+  mean: +2.50e-08
+  sigma-stat: {hi: +2.3e-09, lo: -2.3e-09}
+  sigma-sys: {hi: +0.0, lo: -0.0}
+
+B^+->K^+mu^+mu^-::BR[7.0,8.0]@CMS:2024A:
+  type: 'Gaussian'
+  observable: 'B->Kll::BR'
+  kinematics: {q2_min: +7.0, q2_max: 8.0}
+  options: {l: 'mu', q: 'u', tag: 'BFS2004'}
+  mean: +2.34e-08
+  sigma-stat: {hi: +2.5e-09, lo: -2.5e-09}
+  sigma-sys: {hi: +0.0, lo: -0.0}
+
+B^+->K^+mu^+mu^-::BR[11.0,11.8]@CMS:2024A:
+  type: 'Gaussian'
+  observable: 'B->Kll::BR'
+  kinematics: {q2_min: +11.0, q2_max: 11.8}
+  options: {l: 'mu', q: 'u', tag: 'BFS2004'}
+  mean: +1.62e-08
+  sigma-stat: {hi: +1.8e-09, lo: -1.8e-09}
+  sigma-sys: {hi: +0.0, lo: -0.0}
+
+B^+->K^+mu^+mu^-::BR[11.8,12.5]@CMS:2024A:
+  type: 'Gaussian'
+  observable: 'B->Kll::BR'
+  kinematics: {q2_min: +11.8, q2_max: 12.5}
+  options: {l: 'mu', q: 'u', tag: 'BFS2004'}
+  mean: +1.26e-08
+  sigma-stat: {hi: +1.4e-09, lo: -1.4e-09}
+  sigma-sys: {hi: +0.0, lo: -0.0}
+
+B^+->K^+mu^+mu^-::BR[14.82,16.0]@CMS:2024A:
+  type: 'Gaussian'
+  observable: 'B->Kll::BR'
+  kinematics: {q2_min: +14.82, q2_max: 16.0}
+  options: {l: 'mu', q: 'u', tag: 'BFS2004'}
+  mean: +1.83e-08
+  sigma-stat: {hi: +1.7e-09, lo: -1.7e-09}
+  sigma-sys: {hi: +0.0, lo: -0.0}
+
+B^+->K^+mu^+mu^-::BR[16.0,17.0]@CMS:2024A:
+  type: 'Gaussian'
+  observable: 'B->Kll::BR'
+  kinematics: {q2_min: +16.0, q2_max: 17.0}
+  options: {l: 'mu', q: 'u', tag: 'BFS2004'}
+  mean: +1.57e-08
+  sigma-stat: {hi: +1.5e-09, lo: -1.5e-09}
+  sigma-sys: {hi: +0.0, lo: -0.0}
+
+B^+->K^+mu^+mu^-::BR[17.0,18.0]@CMS:2024A:
+  type: 'Gaussian'
+  observable: 'B->Kll::BR'
+  kinematics: {q2_min: +17.0, q2_max: 18.0}
+  options: {l: 'mu', q: 'u', tag: 'BFS2004'}
+  mean: +2.11e-08
+  sigma-stat: {hi: +1.6e-09, lo: -1.6e-09}
+  sigma-sys: {hi: +0.0, lo: -0.0}
+
+B^+->K^+mu^+mu^-::BR[18.0,19.24]@CMS:2024A:
+  type: 'Gaussian'
+  observable: 'B->Kll::BR'
+  kinematics: {q2_min: +18.0, q2_max: 19.24}
+  options: {l: 'mu', q: 'u', tag: 'BFS2004'}
+  mean: +1.74e-08
+  sigma-stat: {hi: +1.5e-09, lo: -1.5e-09}
+  sigma-sys: {hi: +0.0, lo: -0.0}
+
+B^+->K^+mu^+mu^-::BR[19.24,22.9]@CMS:2024A:
+  type: 'Gaussian'
+  observable: 'B->Kll::BR'
+  kinematics: {q2_min: +19.24, q2_max: 22.9}
+  options: {l: 'mu', q: 'u', tag: 'BFS2004'}
+  mean: +2.02e-08
+  sigma-stat: {hi: +3.0e-09, lo: -3.0e-09}
+  sigma-sys: {hi: +0.0, lo: -0.0}
+# }}}
